@@ -1,0 +1,13 @@
+{
+  "name": "ctci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/chapter2.js",
+  "scripts": {
+    "start": "nodemon build/chapter2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
