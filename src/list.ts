@@ -13,7 +13,7 @@ export class List {
 
   // Pretty print string
   public toString() {
-    const pp = (l: string, n: Node): string => n ? pp(l += n.data + ' ', n.next as Node) : l += ')';
+    const pp = (l: string, n: Node): string => n ? pp(l += n.data.toString() + ' ', n.next as Node) : l += ')';
     return pp('( ', this.head.next as Node);
   }
 
@@ -32,6 +32,44 @@ export class List {
       }
     };
     return run(this.head.next as Node);
+  }
+
+  public at(i: number) {
+    const run = (n: Node): any => {
+      if (n) {
+        if (i === 0) {
+          return n.data;
+        } else {
+          --i;
+          return run(n.next as Node);
+        }
+      }
+    };
+    return run(this.head.next as Node);
+  }
+
+  public remove(n = this.head) {
+    console.log(n);
+    if (n && n.next) {
+      n.next = n.next.next;
+      console.log(n);
+      console.log(this.head.next);
+    }
+    return this;
+  }
+
+  public removeAt(i: number) {
+    const run = (n: Node): any => {
+      if (n) {
+        if (i <= 0) {
+          return this.remove(n);
+        } else {
+          --i;
+          return run(n.next as Node);
+        }
+      }
+    };
+    return run(this.head as Node);
   }
 
   public reverse() {
