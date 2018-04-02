@@ -51,19 +51,24 @@ export class Queue {
     runOut(this.output.data.head.next);
     return str + '->';
   }
+
+  isEmpty() {
+    return this.input.isEmpty() && this.output.isEmpty();
+  }
 }
 
 // 3.6
-// Actually uses queues
+
 export class AnimalShelter {
   dogs = new Queue();
   cats = new Queue();
+  order = 0;
 
   enqueue(pet: 'cat' | 'dog') {
     if (pet === 'cat') {
-      this.cats.enqueue(Date.now());
+      this.cats.enqueue(this.order++);
     } else {
-      this.dogs.enqueue(Date.now());
+      this.dogs.enqueue(this.order++);
     }
   }
 
@@ -91,28 +96,3 @@ export class AnimalShelter {
   }
 }
 
-// Doesnt actually use stacks or queues but uh
-// it said I could use the language's List
-export class AnimalShelter2 {
-  pets: ('cat' | 'dog')[] = [];
-
-  add(pet: 'cat' | 'dog') {
-    this.pets.push(pet);
-  }
-
-  any() {
-    this.pets.splice(0, 1);
-  }
-
-  cat() {
-    this.pets.splice(this.pets.indexOf('cat'), 1);
-  }
-
-  dog() {
-    this.pets.splice(this.pets.indexOf('dog'), 1);    
-  }
-
-  toString() {
-    return `<- ${this.pets.join(', ')} <-`;
-  }
-}

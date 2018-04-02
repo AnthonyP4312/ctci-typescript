@@ -79,19 +79,3 @@ shelter.enqueue('dog');
 console.log(shelter.toString());
 
 
-
-let shelter2 = new AnimalShelter2();
-shelter2.add('cat');
-shelter2.add('cat');
-shelter2.add('cat');
-shelter2.add('dog');
-shelter2.add('dog');
-shelter2.add('dog');
-shelter2.add('cat');
-console.log(shelter2.toString());
-shelter2.any();
-console.log(shelter2.toString());
-shelter2.dog();
-console.log(shelter2.toString());
-shelter2.cat();
-console.log(shelter2.toString());
