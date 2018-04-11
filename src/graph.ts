@@ -1,14 +1,14 @@
 import { Queue } from './queue';
 
 export class DirectedGraph {
-  nodes: Node[];
+  nodes: GNode[];
 
   constructor() {
     // Create a set of test data
     let count = 6;
     let nodes = [];
     for (let i = 1; i <= count; i++) {
-      nodes.push(new Node(i));
+      nodes.push(new GNode(i));
     }
 
     const rand = () => Math.floor(Math.random() * 100) % count;
@@ -33,10 +33,10 @@ export class DirectedGraph {
   }
 }
 
-export class Node {
+export class GNode {
   constructor(
     public data: any,
-    public children: Node[] = []
+    public children: GNode[] = []
   ) {}
 }
 
